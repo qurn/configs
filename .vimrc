@@ -167,6 +167,8 @@ map ö :
 map ü "
 " go to marking
 map ä '
+" open terminal in same folder
+map <F3> :!( urxvt & ) &>/dev/null &\n<cr><cr>
 " space open/closes folds
 nnoremap <space> za
 " dont put single charcters in clipboard
