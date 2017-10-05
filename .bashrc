@@ -20,7 +20,7 @@ function k() {
     killall -9 $1
 }
 # F1 new terminal in same folder
-bind '"\e[11~": "( urxvt & ) &>/dev/null &\n"'
+bind '"\e[13~": "( urxvt & ) &>/dev/null &\n"'
 
 extract () {      # Entpackt alles
    if [ -f $1 ] ; then
