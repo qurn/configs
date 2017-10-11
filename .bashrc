@@ -65,6 +65,9 @@ mkdirc(){
 }
 
 alias grep='grep --color=always' #grep color
+grepr(){
+    grep -R $1
+}
 grepl(){ #grep langsam
     grep -R $1 | less -R
 }
