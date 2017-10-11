@@ -26,9 +26,10 @@ Plugin 'sjl/gundo.vim'
 Plugin 'terryma/vim-smooth-scroll'
 Plugin 'jplaut/vim-arduino-ino'
 Plugin 'dahu/vim-help' " i want to navigate like vim-FX, zathura
-Plugin 'lervag/vimtex'
 " Plugin 'tpope/vim-fugitive' "So awesome, it should be illegal
 " Plugin 'kien/ctrlp.vim'
+Plugin 'vim-latex/vim-latex'
+" Plugin 'lervag/vimtex'
 
 if iCanHazVundle == 0
     echo "Installing Vundles, please ignore key map error messages"
@@ -303,6 +304,13 @@ let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 0
 let g:syntastic_enable_signs=1
 
+" vim-latex
+set grepprg=grep\ -nH\ $*
+let g:tex_flavor='latex'
+set gcr=n:blinkon0
+set gcr=i:blinkon0
+let g:Tex_DefaultTargetFormat='pdf'
+
 " let g:syntastic_python_python_exec = '/usr/bin/python2'
 
 " for gundo, syntastic leadermappings see mappings
@@ -352,4 +360,3 @@ let g:syntastic_enable_signs=1
 " set cpo-=<
 " set wcm=<C-Z>
 " map <F4> :emenu <C-Z>
-
