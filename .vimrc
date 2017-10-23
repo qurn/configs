@@ -26,10 +26,11 @@ Plugin 'sjl/gundo.vim'
 Plugin 'terryma/vim-smooth-scroll'
 Plugin 'jplaut/vim-arduino-ino'
 Plugin 'dahu/vim-help' " i want to navigate like vim-FX, zathura
-" Plugin 'tpope/vim-fugitive' "So awesome, it should be illegal
+Plugin 'lervag/vimtex'
+Plugin 'gko/vim-coloresque'
+Plugin 'tpope/vim-commentary'
+Plugin 'tpope/vim-fugitive' "So awesome, it should be illegal
 " Plugin 'kien/ctrlp.vim'
-Plugin 'vim-latex/vim-latex'
-" Plugin 'lervag/vimtex'
 
 if iCanHazVundle == 0
     echo "Installing Vundles, please ignore key map error messages"
@@ -57,7 +58,8 @@ set scrolloff=8      " keep cursor away from border
 set nowrap
 set colorcolumn=81   " highlight column 81
 set nrformats-=octal " Don't recognize octal numbers for C-A & C-X, it's confusing.
-set clipboard=unnamedplus " Systemclipboard / Register
+" set clipboard=unnamedplus " Systemclipboard / Register
+set clipboard^=unnamed,unnamedplus
 set backspace=indent,eol,start " allow backspacing over everything in insert mode
 if has('mouse') | set mouse=a | endif " enable mouse
 " tabulator
@@ -168,8 +170,6 @@ map ö :
 map ü "
 " go to marking
 map ä '
-" open terminal in same folder
-map <F3> :!( urxvt & ) &>/dev/null &\n<cr><cr>
 " space open/closes folds
 nnoremap <space> za
 " dont put single charcters in clipboard
@@ -237,6 +237,7 @@ nnoremap <silent> <leader>w :call WrapToggle()<cr>
 nnoremap <silent>         B :call BarToggle()<CR>
 nnoremap <silent> <leader>u :GundoToggle<CR>
 nnoremap          <leader>s :SyntasticToggleMode<CR>
+nnoremap <Esc>m :call MaximizeToggle()<cr> " maxize curent tile
 
 function! BarToggle()
     if(&ls == 1)  | set laststatus=2
@@ -253,6 +254,17 @@ endfunction
 function! NumberToggle()
     if(&rnu == 1)  | set norelativenumber | set number
     else           | set relativenumber   | endif
+endfunction
+let s:maximized = 0
+function! MaximizeToggle()
+    if !s:maximized
+        exe "norm! \<C-W>\|" 
+        exe "norm! \<C-W>_" 
+        let s:maximized = 1
+    else                
+        exe "norm! \<C-W>="
+        let s:maximized = 0
+    endif
 endfunction
 
 " show duplicaded lines
@@ -304,12 +316,9 @@ let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 0
 let g:syntastic_enable_signs=1
 
-" vim-latex
-set grepprg=grep\ -nH\ $*
-let g:tex_flavor='latex'
-set gcr=n:blinkon0
-set gcr=i:blinkon0
-let g:Tex_DefaultTargetFormat='pdf'
+let g:syntastic_python_checkers=['flake8']
+let g:syntastic_python_flake8_args='--ignore=E265,E266,E501,E225'
+
 
 " let g:syntastic_python_python_exec = '/usr/bin/python2'
 
@@ -353,6 +362,8 @@ let g:Tex_DefaultTargetFormat='pdf'
 "###############################################################################
 " Playground, test here and insert cleanly later above
 "###############################################################################
+
+map <F3> :! ( urxvt & ) &>/dev/null &<cr><cr>
 
 " Menu
 " source $VIMRUNTIME/menu.vim
