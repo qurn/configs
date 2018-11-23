@@ -2,6 +2,7 @@
 setxkbmap de -option "caps:escape" &
 slstatus &
 dunst &
+xbanish &
 xset s noblank &
 xset s off &
 xset -dpms &
