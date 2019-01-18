@@ -96,3 +96,13 @@ function vga() {
     xrandr --output DP1 --auto --left-of  eDP1 --auto
     xrandr --output DP1 --auto --right-of  eDP1 --transform 0.836601,0.000000,0.000000,-0.091867,1.000000,0.000000,-0.000120,-0.000000,1.000000
 }
+
+man() {
+    LESS_TERMCAP_md=$'\e[01;31m' \
+    LESS_TERMCAP_me=$'\e[0m' \
+    LESS_TERMCAP_se=$'\e[0m' \
+    LESS_TERMCAP_so=$'\e[01;44;33m' \
+    LESS_TERMCAP_ue=$'\e[0m' \
+    LESS_TERMCAP_us=$'\e[01;32m' \
+    command man "$@"
+}
