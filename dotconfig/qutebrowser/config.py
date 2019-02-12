@@ -1632,3 +1632,4 @@ config.bind('x', 'tab-close')
 
 ## Bindings for register mode
 # config.bind('<Escape>', 'leave-mode', mode='register')
+config.bind('pp', 'hint links spawn tsp youtube-dl -o "~/Video/%(title)s.%(ext)s" {hint-url}')
