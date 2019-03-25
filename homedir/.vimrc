@@ -42,7 +42,7 @@ call vundle#end() "must be last
 "###############################################################################
 " Basic Setup
 "###############################################################################
-set ruler		" show the cursor position all the time
+set ruler		     " show the cursor position all the time
 set showcmd		     " display incomplete commands
 set wildmenu		 " display completion matches in a status line
 set ttimeout		 " time out for key codes
@@ -52,6 +52,8 @@ set showmatch        " highlight matching [{()}]
 set history=200	     " keep 50 lines of command line history
 set incsearch	     " do incremental searching
 set hlsearch         " highlighting last search
+set splitright       " open new split on right side
+set splitbelow       " open new split below
 set cursorline
 set number           " Absolute Zeilenzahl
 set scrolloff=8      " keep cursor away from border
