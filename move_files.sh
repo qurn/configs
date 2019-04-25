@@ -1,7 +1,4 @@
 #!/bin/bash
 
-cd homedir
-cp -rf . ../../..
-
-cd ../dotconfig
-cp -rf . ../../../.config
+cp -rf homedir $HOME
+cp -rf dotconfig $HOME/.config
